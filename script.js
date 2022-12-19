@@ -34,7 +34,7 @@ function playRound (n, m) {
             return "loss";
         }
 }
-
+let myscore = 0, pcscore = 0;
 const butt1 = document.querySelector(".button1");
 const butt2 = document.querySelector(".button2");
 const butt3 = document.querySelector(".button3");
@@ -45,23 +45,49 @@ const draw = document.createElement("div");
 const loss = document.createElement("div");
 
 function winner(){
-    win.textContent = "you win!";
+    win.textContent = `you win! the score is now: Player ${++myscore} - ${pcscore} Computer`;
     result.appendChild(win);
 }
 
+function Loser(){
+    win.textContent = `you Lose! the score is now: Player ${myscore} - ${++pcscore} Computer`;
+    result.appendChild(loss);
+}
+
+function Draw(){
+    win.textContent = `its a tie! the score remains: Player ${myscore} - ${pcscore} Computer`;
+    result.appendChild(draw);
+}
+
+function checkScore (m) {
+    if (m == "win")
+        return winner();
+    else if (m == "draw")
+        return Draw();
+        else 
+            return Loser();
+}
+
+
+
+
+
+
 butt1.addEventListener("click", () => {
-    if (playRound("rock", getComputerChoice()) == "win")
-        winner();
+    let score = playRound("rock", getComputerChoice());
+        checkScore (score);
+        
         
     
 })
 
 butt2.addEventListener("click", () => {
-    if (playRound("paper", getComputerChoice()) == "win" )
-        alert
+    let score = playRound("paper", getComputerChoice());
+        checkScore (score);
 
 })
 
 butt3.addEventListener("click", () => {
-    playRound("scissors", getComputerChoice())
+    let score = playRound("scissors", getComputerChoice())
+        checkScore (score);
 })
