@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(4, 0, 14, 0.993);
+}
+
+.buttons {
+    flex-grow: 1;
+    margin: auto;
+    margin-top: 400px;
+    display: flex;
+    gap: 100px;
+
+}
+
+button {
+    font-size: 50px;
+    background-color: rgb(80, 68, 68);
+    border-radius: 14px;
+}
+
+.result{
+    color: aliceblue;
+}

@@ -1,5 +1,5 @@
 function getComputerChoice(){
-    let x= Math.random();
+    let x = Math.random();
     if (x <= 0.33) {
         return "rock";
     } 
@@ -35,32 +35,33 @@ function playRound (n, m) {
         }
 }
 
-function Game(){
-    let myscore=0, pcscore=0, roundresult;
-    for (let i=0; i<5; i++) {
-        roundresult = playRound(playerSelection(), getComputerChoice()); 
-        if (roundresult == "draw") {
-            console.log(`its a draw. the score remains: you ${myscore} - ${pcscore} computer`);
-    }
-        if (roundresult == "win") {
-            myscore++;
-            console.log(`its a Victory! the score changes to: you ${myscore} - ${pcscore} computer`);
-    }
-        if (roundresult == "loss") {
-            console.log(`its a loss.. the score changes to: you ${myscore} - ${++pcscore} computer`);
-    }
+const butt1 = document.querySelector(".button1");
+const butt2 = document.querySelector(".button2");
+const butt3 = document.querySelector(".button3");
 
+const result = document.querySelector(".result");
+const win = document.createElement("div");
+const draw = document.createElement("div");
+const loss = document.createElement("div");
 
+function winner(){
+    win.textContent = "you win!";
+    result.appendChild(win);
 }
-    if (myscore > pcscore) {
-        console.log("Game completed, you win!")
-    }
-        else if (myscore < pcscore) {
-            console.log("Unfortunately you lose, game over")
-        }
-            else {
-                console.log("Would you look at that! its a tie!")
-            }
-}
-// let myscore, pcscore
-Game();
+
+butt1.addEventListener("click", () => {
+    if (playRound("rock", getComputerChoice()) == "win")
+        winner();
+        
+    
+})
+
+butt2.addEventListener("click", () => {
+    if (playRound("paper", getComputerChoice()) == "win" )
+        alert
+
+})
+
+butt3.addEventListener("click", () => {
+    playRound("scissors", getComputerChoice())
+})
