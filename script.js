@@ -70,24 +70,41 @@ function checkScore (m) {
 
 
 
+// function scoreTrack(Q) {
+//     while ( myscore < 5 && pcscore < 5) {
+//         if (score = "win") {
 
+//         }
+
+
+//     }
+// }
 
 
 butt1.addEventListener("click", () => {
     let score = playRound("rock", getComputerChoice());
         checkScore (score);
-        
-        
-    
+        endGame();
 })
 
 butt2.addEventListener("click", () => {
     let score = playRound("paper", getComputerChoice());
         checkScore (score);
+        endGame();
 
 })
 
 butt3.addEventListener("click", () => {
     let score = playRound("scissors", getComputerChoice())
         checkScore (score);
+        endGame();
 })
+function endGame(){
+if (myscore == 5) {
+    console.log(myscore);
+    return alert("Congratulations, you win the whole game! reload the webpage to play again");
+}
+else if (pcscore == 5){
+    return alert("Unfortunately, you lost :/.. reload the webpage to have another go!");
+}
+}
